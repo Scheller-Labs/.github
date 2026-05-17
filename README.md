@@ -1,217 +1,120 @@
-# Market Data Service (MDS)
+<div align="center">
+  <img src="banner.svg" width="100%" alt="Scheller Labs — The Codex of Modern Intelligence"/>
+</div>
 
-[![CI](https://github.com/Scheller-Labs/market-data-service/actions/workflows/ci.yml/badge.svg)](https://github.com/Scheller-Labs/market-data-service/actions/workflows/ci.yml)
-[![Coverage](https://img.shields.io/codecov/c/github/Scheller-Labs/market-data-service)](https://codecov.io/gh/Scheller-Labs/market-data-service)
-[![Security](https://github.com/Scheller-Labs/market-data-service/actions/workflows/security.yml/badge.svg)](https://github.com/Scheller-Labs/market-data-service/actions/workflows/security.yml)
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+<br/>
 
-**Production-grade market data infrastructure for algorithmic trading systems.**
+<p align="center">
+  <img src="https://img.shields.io/badge/AGENT__STATUS-ACTIVE-0095A2?style=flat-square&labelColor=2D2926" alt="Status"/>
+  &nbsp;
+  <img src="https://img.shields.io/badge/DOMAIN-AGENTIC__AI-0095A2?style=flat-square&labelColor=2D2926" alt="Domain"/>
+  &nbsp;
+  <img src="https://img.shields.io/badge/EPOCH-THE__NEW__ENLIGHTENMENT-D4AF37?style=flat-square&labelColor=2D2926" alt="Epoch"/>
+  &nbsp;
+  <img src="https://img.shields.io/badge/SYSTEM-STABLE-D4AF37?style=flat-square&labelColor=2D2926" alt="System"/>
+</p>
 
-MDS is a unified market data ingestion, caching, and storage service that normalizes data from multiple providers behind a single API. Built to serve as shared infrastructure for multi-agent trading architectures.
+---
 
-## Key Features
+> *"The noblest pleasure is the joy of understanding."*
 
-- **Multi-provider ingestion** — Alpha Vantage, Finnhub, Databento, TastyTrade with provider-agnostic adapter pattern
-- **Three-tier data architecture** — Redis hot cache → TimescaleDB hypertable storage → MinIO/Parquet cold archive
-- **Token bucket rate limiting** — per-provider rate limit enforcement with burst handling
-- **Gap detection & repair** — SQLite coverage manifest tracks data completeness, auto-triggers backfill
-- **Typer CLI** — full command-line interface for data operations, diagnostics, and administration
-- **Real-time & historical** — WebSocket streaming and REST-based historical data through unified interfaces
+**Scheller Labs** is a research organization operating at the boundary of intellectual rigor and frontier AI. We function as a modern-day codex — a living workspace where technical architectures, exploratory agent systems, and documented knowledge coexist.
 
-## Architecture
+Our operating principle is **The New Enlightenment**: applying the scholarly discipline of the Renaissance to the open problems of agentic machine intelligence, precision biosensing, and autonomous systems.
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                      Consumers                          │
-│         (Trading Agents, Strategy Backtester)            │
-├─────────────────────────────────────────────────────────┤
-│                     MDS API Layer                        │
-│              FastAPI / gRPC (planned)                    │
-├──────────┬──────────────────────┬────────────────────────┤
-│  Redis   │    TimescaleDB       │   MinIO / Parquet      │
-│  (L1)    │    (L2)              │   (L3 Cold Archive)    │
-│  Hot     │    Hypertable        │   Historical           │
-│  Cache   │    Storage           │   Bulk Storage         │
-├──────────┴──────────────────────┴────────────────────────┤
-│               Provider Adapter Layer                     │
-│  ┌────────────┐ ┌────────┐ ┌──────────┐ ┌────────────┐  │
-│  │AlphaVantage│ │Finnhub │ │Databento │ │TastyTrade  │  │
-│  └────────────┘ └────────┘ └──────────┘ └────────────┘  │
-│           Token Bucket Rate Limiter (per provider)       │
-├─────────────────────────────────────────────────────────┤
-│             Coverage Manifest (SQLite)                   │
-│          Gap Detection ─► Auto Backfill                  │
-└─────────────────────────────────────────────────────────┘
-```
+---
 
-## Quick Start
+## `RESEARCH_DOMAINS`
 
-### Prerequisites
+<table>
+<thead>
+<tr>
+<th align="left"><code>DOMAIN</code></th>
+<th align="left"><code>FOCUS</code></th>
+<th align="center"><code>STATUS</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Agentic AI Systems</strong></td>
+<td>Multi-agent orchestration, swarm coordination, LangGraph + AutoGen architectures</td>
+<td align="center"><img src="https://img.shields.io/badge/ACTIVE-0095A2?style=flat-square"/></td>
+</tr>
+<tr>
+<td><strong>Precision Biosensing</strong></td>
+<td>ML-based physiological monitoring, edge inference, IoT sensor fusion</td>
+<td align="center"><img src="https://img.shields.io/badge/ACTIVE-0095A2?style=flat-square"/></td>
+</tr>
+<tr>
+<td><strong>Quantitative Systems</strong></td>
+<td>Algorithmic strategy development, backtesting frameworks, real-time execution</td>
+<td align="center"><img src="https://img.shields.io/badge/IN__PROGRESS-D4AF37?style=flat-square"/></td>
+</tr>
+<tr>
+<td><strong>Edge AI & Inference</strong></td>
+<td>Local model serving, GPU cluster orchestration, vLLM deployments</td>
+<td align="center"><img src="https://img.shields.io/badge/RESEARCH-675d4e?style=flat-square"/></td>
+</tr>
+</tbody>
+</table>
 
-- Python 3.11+
-- Docker & Docker Compose
-- API keys for at least one data provider
+---
 
-### One-Command Setup
+## `SELECTED_TREATISES`
 
-```bash
-# Clone and start all infrastructure
-git clone https://github.com/Scheller-Labs/market-data-service.git
-cd market-data-service
-cp .env.example .env  # Add your API keys
-make dev              # Starts Redis, TimescaleDB, MinIO + MDS
-```
+<details>
+<summary><strong><code>[ VOL_01 ] — The Codex</code></strong> &nbsp; <img src="https://img.shields.io/badge/SYSTEM__DOCS-2D2926?style=flat-square&labelColor=2D2926&color=0095A2"/></summary>
 
-### Verify Installation
+<br/>
 
-```bash
-# Health check
-make health
+A living repository of documentation, mapping the neural architectures and symbolic logic used across the S_LABS ecosystem. The Codex provides the epistemic foundation for all research conducted under this organization — structured as both reference material and exploratory sketchbook.
 
-# Ingest sample data
-mds ingest --symbol SPY --interval 1min --provider alphavantage
+</details>
 
-# Check coverage
-mds coverage --symbol SPY
-```
+<details>
+<summary><strong><code>[ VOL_02 ] — Agentic Methodology</code></strong> &nbsp; <img src="https://img.shields.io/badge/WHITE__PAPER__V2-2D2926?style=flat-square&labelColor=2D2926&color=D4AF37"/></summary>
 
-### Docker Only
+<br/>
 
-```bash
-docker compose up -d
-docker compose exec mds mds health
-```
+The framework for autonomous agent swarms, focusing on collaborative problem-solving and emergent behavior. Core research into coordination protocols, Strategy Registry FSMs, and deterministic real-time execution pipelines.
 
-## Usage
+</details>
 
-### CLI Examples
+<details>
+<summary><strong><code>[ VOL_03 ] — Precision Sensing</code></strong> &nbsp; <img src="https://img.shields.io/badge/FIELD__DEPLOYED-2D2926?style=flat-square&labelColor=2D2926&color=0095A2"/></summary>
 
-```bash
-# Ingest historical data
-mds ingest --symbol AAPL --interval 1d --start 2024-01-01 --end 2024-12-31
+<br/>
 
-# Stream real-time data
-mds stream --symbols SPY,QQQ,IWM --provider finnhub
+ML-based biosensor systems for physiological monitoring at scale. Research spans edge inference architectures, anomaly detection models, and global deployment patterns across heterogeneous IoT environments.
 
-# Check for data gaps
-mds coverage --symbol SPY --interval 1min --start 2024-01-01
+</details>
 
-# Repair gaps automatically
-mds repair --symbol SPY --interval 1min --auto
+---
 
-# Export to Parquet
-mds export --symbol AAPL --format parquet --output ./data/
-```
+## `PROTOCOL_STACK`
 
-### Python API
+<p>
+  <img src="https://img.shields.io/badge/Python-2D2926?style=flat-square&logo=python&logoColor=D4AF37" alt="Python"/>
+  <img src="https://img.shields.io/badge/LangGraph-2D2926?style=flat-square&logoColor=0095A2" alt="LangGraph"/>
+  <img src="https://img.shields.io/badge/AutoGen_AG2-2D2926?style=flat-square&logoColor=0095A2" alt="AutoGen"/>
+  <img src="https://img.shields.io/badge/vLLM-2D2926?style=flat-square&logoColor=D4AF37" alt="vLLM"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-2D2926?style=flat-square&logo=postgresql&logoColor=0095A2" alt="PostgreSQL"/>
+  <img src="https://img.shields.io/badge/Redis-2D2926?style=flat-square&logo=redis&logoColor=D4AF37" alt="Redis"/>
+  <img src="https://img.shields.io/badge/TimescaleDB-2D2926?style=flat-square&logoColor=0095A2" alt="TimescaleDB"/>
+  <img src="https://img.shields.io/badge/Docker-2D2926?style=flat-square&logo=docker&logoColor=0095A2" alt="Docker"/>
+  <img src="https://img.shields.io/badge/NVIDIA_CUDA-2D2926?style=flat-square&logo=nvidia&logoColor=D4AF37" alt="CUDA"/>
+</p>
 
-```python
-from mds import MarketDataService
+---
 
-mds = MarketDataService()
+<p align="center">
+  <a href="https://github.com/Scheller-Labs">
+    <img src="https://img.shields.io/badge/EXPLORE__THE__ARCHIVE-2D2926?style=for-the-badge&labelColor=2D2926&color=0095A2" alt="Repositories"/>
+  </a>
+</p>
 
-# Get historical bars
-bars = await mds.get_bars("SPY", interval="1min", start="2024-01-01", end="2024-12-31")
+<br/>
 
-# Subscribe to real-time data
-async for bar in mds.stream("SPY", interval="1min"):
-    print(f"{bar.timestamp} {bar.close} vol={bar.volume}")
-
-# Check coverage
-gaps = await mds.check_coverage("SPY", interval="1min")
-```
-
-## Configuration
-
-MDS uses a layered configuration system: defaults → config file → environment variables → CLI flags.
-
-See [docs/CONFIGURATION.md](docs/CONFIGURATION.md) for the full reference.
-
-```bash
-# Core settings via environment
-MDS_REDIS_URL=redis://localhost:6379/0
-MDS_TIMESCALE_URL=postgresql://mds:mds@localhost:5432/mds
-MDS_MINIO_ENDPOINT=localhost:9000
-
-# Provider API keys
-MDS_ALPHAVANTAGE_API_KEY=your_key_here
-MDS_FINNHUB_API_KEY=your_key_here
-MDS_DATABENTO_API_KEY=your_key_here
-```
-
-## Documentation
-
-| Document | Description |
-|----------|-------------|
-| [Architecture](docs/ARCHITECTURE.md) | System design, data flow, and design rationale |
-| [Configuration](docs/CONFIGURATION.md) | All configuration options and environment variables |
-| [Deployment](docs/DEPLOYMENT.md) | Production deployment guide |
-| [API Reference](docs/api/README.md) | REST API endpoints and schemas |
-| [Contributing](CONTRIBUTING.md) | Development setup, coding standards, PR process |
-| [Changelog](CHANGELOG.md) | Version history and release notes |
-| [Security](SECURITY.md) | Security policy and vulnerability reporting |
-
-### Architecture Decision Records
-
-| ADR | Decision |
-|-----|----------|
-| [001](docs/decisions/001-three-tier-storage.md) | Three-tier storage architecture (Redis/TimescaleDB/MinIO) |
-| [002](docs/decisions/002-provider-adapter-pattern.md) | Provider adapter pattern with token bucket rate limiting |
-| [003](docs/decisions/003-timescaledb-over-questdb.md) | TimescaleDB over QuestDB for time-series storage |
-| [004](docs/decisions/004-sqlite-coverage-manifest.md) | SQLite for coverage manifest over PostgreSQL |
-| [005](docs/decisions/005-parquet-cold-storage.md) | Parquet format for cold storage archival |
-
-### Runbooks
-
-| Runbook | Scenario |
-|---------|----------|
-| [Data Provider Outage](docs/runbooks/provider-outage.md) | Handling provider downtime and failover |
-| [Gap Detection & Repair](docs/runbooks/gap-repair.md) | Diagnosing and repairing data gaps |
-| [Adding a New Provider](docs/runbooks/new-provider.md) | Step-by-step guide for new data source integration |
-| [TimescaleDB Maintenance](docs/runbooks/timescaledb-maintenance.md) | Partition management, vacuuming, retention policies |
-
-## Testing
-
-```bash
-make test          # Run all tests
-make test-unit     # Unit tests only
-make test-int      # Integration tests (requires Docker)
-make test-e2e      # End-to-end scenarios
-make test-perf     # Performance/load tests
-make coverage      # Generate coverage report
-```
-
-See [tests/README.md](tests/README.md) for testing philosophy and conventions.
-
-## Performance
-
-Benchmarked on a single-node deployment (RTX 4070 Ti Super, 32GB RAM):
-
-| Operation | Throughput | Latency (p99) |
-|-----------|-----------|---------------|
-| Cache read (Redis) | 45,000 req/s | < 1ms |
-| Historical query (TimescaleDB) | 2,500 req/s | < 15ms |
-| Ingest (single provider) | 500 bars/s | — |
-| Gap detection scan | — | < 200ms / symbol |
-
-## Roadmap
-
-- [ ] gRPC API for low-latency agent communication
-- [ ] Options chain data support
-- [ ] Level 2 / depth-of-book integration
-- [ ] Kafka/NATS streaming alternative
-- [ ] Multi-node deployment with service mesh
-
-## License
-
-Licensed under the Apache License 2.0. See [LICENSE](LICENSE) for details.
-
-## Related Projects
-
-This service is part of the **Agent Trading Firm** ecosystem:
-
-- [agent-trading-firm](https://github.com/Scheller-Labs/agent-trading-firm) — Multi-agent autonomous trading system
-- [multi-agent-architectures](https://github.com/Scheller-Labs/multi-agent-architectures) — AutoGen AG2 + LangGraph orchestration patterns
-- [autoresearch-loop](https://github.com/Scheller-Labs/autoresearch-loop) — Autonomous research agent pipelines
-- [llm-fine-tuning](https://github.com/Scheller-Labs/llm-fine-tuning) — Model fine-tuning and experimentation
+<p align="center">
+  <sub><code>© 1502—2026 Scheller Labs. The New Enlightenment. &nbsp;|&nbsp; SYSTEM_HEARTBEAT: STABLE &nbsp;|&nbsp; SECTOR_07 // LATENCY: 14MS</code></sub>
+</p>
